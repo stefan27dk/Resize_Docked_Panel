@@ -74,5 +74,15 @@ namespace Resize_Docked_Panel
         {
             isResizing = false;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Resize(object sender, EventArgs e)
+        {
+
+        }
     }
 }
