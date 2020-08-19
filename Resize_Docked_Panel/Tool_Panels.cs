@@ -39,7 +39,7 @@ namespace Resize_Docked_Panel
             Right_Tool_Panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Right_Tool_Panel_Mouse_UP); // Mouse UP
             Right_Tool_Panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Right_Tool_Panel_Mouse_MOVE); // Mouse MOVE
             Right_Tool_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Right_Tool_Panel_OnPAINT); // Mouse MOVE
-            Right_Tool_Panel.Resize += new System.EventHandler(this.Right_Tool_Panel_OnResize); // Mouse MOVE    //# Used For Refreshing the Border so it does not flickers
+            Right_Tool_Panel.SizeChanged += new System.EventHandler(this.Right_Tool_Panel_SizeChanged); // Size_Changed    //# Used For Refreshing the Border so it does not flickers
 
 
             // Remove Flickering---------------:::START:::
@@ -57,16 +57,20 @@ namespace Resize_Docked_Panel
 
 
 
-        // Resize - Right Tool Panel
-        private void Right_Tool_Panel_OnResize(object sender, EventArgs e)
+
+        // Size Changed - Right Tool Panel      // Used for removing flickering
+        private void Right_Tool_Panel_SizeChanged(object sender, EventArgs e)
         {
-            if(Right_Tool_Panel.Parent != null)
+            if (Right_Tool_Panel.Parent != null)
             {
 
-                Right_Tool_Panel.Parent.Refresh(); // Remove Border Ínproper Show
+                Right_Tool_Panel.Parent.Invalidate(); // Remove Border Ínproper Show
             }
-
         }
+
+
+
+       
 
 
 
@@ -76,14 +80,34 @@ namespace Resize_Docked_Panel
         // Paint - Right Tool Panel
         private void Right_Tool_Panel_OnPAINT(object sender, PaintEventArgs e)
         {
+            if (Right_Tool_Panel.BorderStyle == BorderStyle.FixedSingle)
+            {
+                //int thickness = 50; 
+                //int halfThickness = thickness / 2;
+                //using (Pen p = new Pen(Color.Black, thickness))
+                //{
+                //    e.Graphics.DrawRectangle(p, new Rectangle(halfThickness,
+                //                                              halfThickness,
+                //                                              Right_Tool_Panel.ClientSize.Width - thickness,
+                //                                              Right_Tool_Panel.ClientSize.Height - thickness));
+                //}
 
-            ControlPaint.DrawBorder(e.Graphics, this.Right_Tool_Panel.ClientRectangle, Color.DarkBlue, ButtonBorderStyle.Inset); // Draw Border
-           
+
+                int thickness = 15;
+                int halfThickness = thickness / 2;
+                using (Pen p = new Pen(Color.FromArgb(75, 78, 84), thickness))
+                {
+                    e.Graphics.DrawLine(p, new Point(0,0), new Point(0, Right_Tool_Panel.ClientSize.Height));
+                }
+            }
+
+            //ControlPaint.DrawBorder(e.Graphics, this.Right_Tool_Panel.ClientRectangle, Color.DarkBlue, ButtonBorderStyle.Inset); // Draw Border
+
         }
 
 
 
-     
+
 
 
 
@@ -135,7 +159,7 @@ namespace Resize_Docked_Panel
 
                 if (Right_Tool_panel_Is_Resizing == true)
                 {
-                    Right_Tool_Panel.Width = Right_Tool_Panel.Width - (Right_Tool_panel_Old_Location.X + e.X - 10);
+                    Right_Tool_Panel.Width = Right_Tool_Panel.Width - e.X;
                 }
             }
 
