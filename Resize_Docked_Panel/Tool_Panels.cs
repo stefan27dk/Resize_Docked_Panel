@@ -95,10 +95,22 @@ namespace Resize_Docked_Panel
 
                 int thickness = 15;
                 int halfThickness = thickness / 2;
-                using (Pen p = new Pen(Color.FromArgb(75, 78, 84), thickness))
+                using (Pen Pen_Lb = new Pen(Color.FromArgb(84, 89, 97), thickness))
                 {
-                    e.Graphics.DrawLine(p, new Point(0,0), new Point(0, Right_Tool_Panel.ClientSize.Height));
+                    e.Graphics.DrawLine(Pen_Lb, new Point(0,0), new Point(0, Right_Tool_Panel.ClientSize.Height));
                 }
+
+
+
+                using (Pen Pen_H = new Pen(Color.FromArgb(255, 200, 71), 2))
+                {
+                    e.Graphics.DrawLine(Pen_H, new Point(1, Right_Tool_Panel.ClientSize.Height / 2), new Point(1, Right_Tool_Panel.ClientSize.Height / 2 - 20));
+                    e.Graphics.DrawLine(Pen_H, new Point(6, Right_Tool_Panel.ClientSize.Height / 2), new Point(6, Right_Tool_Panel.ClientSize.Height / 2 - 20));
+                    //e.Graphics.DrawLine(Pen_H, new Point(6, Right_Tool_Panel.ClientSize.Height / 2), new Point(6, Right_Tool_Panel.ClientSize.Height / 2 -20) );
+                }
+
+
+
             }
 
             //ControlPaint.DrawBorder(e.Graphics, this.Right_Tool_Panel.ClientRectangle, Color.DarkBlue, ButtonBorderStyle.Inset); // Draw Border
