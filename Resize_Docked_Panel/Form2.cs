@@ -16,7 +16,11 @@ namespace Resize_Docked_Panel
         {
             
             InitializeComponent();
+            
            
+            //Tool_Panels a = new Tool_Panels();
+            //panel1 = a.Get_Right_Tool_Panel();
+
 
         }
 

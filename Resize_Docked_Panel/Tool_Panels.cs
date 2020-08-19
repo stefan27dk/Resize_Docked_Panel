@@ -21,7 +21,7 @@ namespace Resize_Docked_Panel
 
 
         // RIGHT - Tool - Panel - Variables
-        Panel Right_Tool_Panel; //#
+       public Panel Right_Tool_Panel; //#
         Point Right_Tool_panel_Old_Location;
         bool Right_Tool_panel_Is_Resizing = false;
 
