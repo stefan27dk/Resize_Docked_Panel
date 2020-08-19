@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            Tool_Panels a = new Tool_Panels();
-            panel1 = a.Get_Right_Tool_Panel();
             this.SuspendLayout();
             // 
             // panel1

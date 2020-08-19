@@ -34,7 +34,7 @@ namespace Resize_Docked_Panel
         // Get Right Tool Panel
         public Panel Get_Right_Tool_Panel()
         {
-            Right_Tool_Panel = new Panel();
+            //Right_Tool_Panel = new Panel();
             Right_Tool_Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Right_Tool_Panel_Mouse_DOWN); // Mouse DOWN
             Right_Tool_Panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Right_Tool_Panel_Mouse_UP); // Mouse UP
             Right_Tool_Panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Right_Tool_Panel_Mouse_MOVE); // Mouse MOVE

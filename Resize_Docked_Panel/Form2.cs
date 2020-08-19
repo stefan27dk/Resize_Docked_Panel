@@ -16,10 +16,12 @@ namespace Resize_Docked_Panel
         {
             
             InitializeComponent();
-            
-           
-            //Tool_Panels a = new Tool_Panels();
-            //panel1 = a.Get_Right_Tool_Panel();
+
+            Tool_Panels a = new Tool_Panels();
+            a.Right_Tool_Panel = panel1;
+            a.Get_Right_Tool_Panel();
+            this.Controls.Add(a.Right_Tool_Panel);
+
 
 
         }
@@ -27,8 +29,9 @@ namespace Resize_Docked_Panel
         private void Form2_Load(object sender, EventArgs e)
         {
             
+
         }
 
-      
+
     }
 }
